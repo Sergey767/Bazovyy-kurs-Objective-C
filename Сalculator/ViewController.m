@@ -26,7 +26,6 @@
     remainderResultLabel.text = @"остаток от деления";
 }
 
-
 - (IBAction)resultButton:(id)sender {
     NSInteger sumResult = [sumFirstNumberTextField.text intValue] + [sumSecondNumberTextField.text intValue];
     sumResultLabel.text = [NSString stringWithFormat:@"сумма = %ld", (long)sumResult];
@@ -37,16 +36,28 @@
     NSInteger multiplicationResult = [multiplicationFirstNumberTextField.text intValue] * [multiplicationSecondNumberTextField.text intValue];
     multiplicationResultLabel.text = [NSString stringWithFormat:@"умножение = %ld", (long)multiplicationResult];
     
-    NSInteger divideResult = [divideFirstNumberTextField.text intValue] / [divideSecondNumberTextField.text intValue];
-    divideResultLabel.text = [NSString stringWithFormat:@"деление = %ld", (long)divideResult];
+    if ([divideSecondNumberTextField.text intValue] == 0) {
+        divideResultLabel.text = @"деление = 0";
+    } else {
+        NSInteger divideResult = [divideFirstNumberTextField.text intValue] / [divideSecondNumberTextField.text intValue];
+        divideResultLabel.text = [NSString stringWithFormat:@"деление = %ld", (long)divideResult];
+                
+        NSLog(@"Деление = %li", (long)divideResult);
+    }
     
-    NSInteger remainderResult = [remainderFirstNumberTextField.text intValue] % [remainderSecondNumberTextField.text intValue];
-    remainderResultLabel.text = [NSString stringWithFormat:@"остаток от деления = %ld", (long)remainderResult];
+    if ([remainderSecondNumberTextField.text intValue] == 0) {
+        remainderResultLabel.text = @"остаток от деления = 0";
+    } else {
+        NSInteger remainderResult = [remainderFirstNumberTextField.text intValue] % [remainderSecondNumberTextField.text intValue];
+        remainderResultLabel.text = [NSString stringWithFormat:@"остаток от деления = %ld", (long)remainderResult];
+                
+        NSLog(@"остаток от деления = %ld", (long)remainderResult);
+    }
 
     NSInteger averageResult = ([averageFirstNumberTextField.text intValue] + [averageSecondNumberTextField.text intValue] + [averageThreeNumberTextField.text intValue]) / 3;
     averageResultLabel.text = [NSString stringWithFormat:@"среднее число = %ld", (long)averageResult];
     
-    NSLog(@"Сумма = %li, Вычитание = %li, Умножение = %li, Деление = %li, Остаток от деления = %li, среднее число = %li", (long)sumResult, (long)subtractionResult, (long)multiplicationResult, (long)divideResult, (long)remainderResult, (long)averageResult);
+    NSLog(@"Сумма = %li, Вычитание = %li, Умножение = %li, среднее число = %li", (long)sumResult, (long)subtractionResult, (long)multiplicationResult, (long)averageResult);
 }
 
 @end
