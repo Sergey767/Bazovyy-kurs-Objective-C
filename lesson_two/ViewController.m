@@ -30,12 +30,12 @@
         NSLog(@"Буква не входит в английский алфавит");
     
     // Задание 2
-//    NSLog(@"%f", [self sum:15 and:30]);
-//    NSLog(@"%f", [self subtract:90 and:36]);
-//    NSLog(@"%f", [self multiplication:200 and:5]);
-//    NSLog(@"%f", [self divide:190 and:5]);
-//    NSLog(@"%f", [self remainder:8 and:4]);
-//    NSLog(@"%f", [self averageNumber:45 and:45 and:60]);
+    NSLog(@"%f", [self sum:15 and:30]);
+    NSLog(@"%f", [self subtract:90 and:36]);
+    NSLog(@"%f", [self multiplication:200 and:5]);
+    NSLog(@"%f", [self divide:190 and:5]);
+    NSLog(@"%f", [self remainder:8 and:3]);
+    NSLog(@"%f", [self averageNumber:45 and:45 and:60]);
 }
 
 
@@ -58,11 +58,19 @@
 }
 
 - (CGFloat)divide:(NSInteger)firstValue and:(NSInteger)secondValue {
-    return firstValue / secondValue;
+    if (secondValue == 0){
+        return 0;
+    } else {
+        return firstValue / secondValue;
+    }
 }
 
 - (CGFloat)remainder:(NSInteger)firstValue and:(NSInteger)secondValue {
-    return firstValue % secondValue;
+    if (secondValue == 0){
+        return 0;
+    } else {
+        return firstValue % secondValue;
+    }
 }
 
 - (CGFloat)averageNumber:(NSInteger)firstValue and:(NSInteger)secondValue and:(NSInteger)threeValue {
